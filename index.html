@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Billing Storage</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container-added">
+            <div class="text">Монтажник:</div>
+            <select name="monter1" id="monter">
+                <option value="222">Анатолий Чепига</option>
+                <option value="333">Руслан Боширов</option>
+                <option value="444">Александр Петров</option>
+            </select>
+            <button id="output">Test  </button>
+            <div class="text">Mac:</div>
+            <input type="text" id="mac" size="10px">
+            <div class="text">Модель:</div>
+            <select id="model">
+                <option value="a20">a20</option>
+                <option value="a5(Гиг)">a5(Гиг)</option>
+            </select>
+            <div class="text">Комментарий:</div>
+            <input type="text" id="comment" size="20px">
+        </div>
+        <table class="table-main">
+            <tr id="tab1">
+                <th class="table-th" class="table-color" id='th-model'>Модель</th>
+                <th class="table-th" class="table-color" id='th-mac'>Мак адрес</th>
+                <th class="table-th" class="table-color" id='th-monter'>Монтажник</th>
+                <th class="table-th" class="table-color" id='th-id'>ИД</th>
+                <th class="table-th" class="table-color" id='th-comment'>Комментарий</th>
+                <th class="table-th" class="table-color" id='th-date'>Дата</th>
+            </tr>
+        </table>
+        <table class="table-main" id="tab">
+            
+        </table>
+        <div class="container-out">
+            <div class="out-name"></div>
+            <div id="out"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
