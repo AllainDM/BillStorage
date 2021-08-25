@@ -12,7 +12,7 @@ body {
     margin-top: 10px;
     background: #E4E8EF;
     border: solid 1px;
-    height: 190px;
+    height: 200px;
     width: 600px;
 }
 
@@ -34,19 +34,13 @@ header {
     display: none;
 }
 
-
-
-
 .container {
     width: 100%;
 }
 
 .left {
     width: 150px;
-
     position: relative;
-    /* height: 700px; */
-
     min-height: 700px;
     height: 100%;
     float: left;
@@ -58,7 +52,6 @@ header {
     /* position: absolute; */
     /* right: 15px; */
     text-align: center;
-
 }
 
 .add {
@@ -76,11 +69,12 @@ header {
 
 .left-text {
     text-decoration: none;
-    text-decoration-line: none;
     color: #232333;
     float: left;
-    display: block;
-    padding: 0px 15px;
+    display: inline;
+    margin: 0;
+    padding: 5px 15px;
+    position: relative;
 }
 
 .container-filter{
@@ -92,30 +86,17 @@ header {
     float: left;
 }
 
-/* .btn-save {
-
-} */
-
-/* .container-out {
-    border-style: double;
-} */
-
 .table-main {
-    /* background: white; */
     height: 30px;
     margin-top: 10px;
-    /* border-style: double; */
 }
 
 .table-th {
     background: #FC8E00;
     color: white;
     padding: 0px 0px 0px 0px;
-    /* width: 200px; */
-    /* border-style: solid; */
     border-width: 1px;
     border-color: white;
-
     text-align: center;
 }
 
