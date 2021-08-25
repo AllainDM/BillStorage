@@ -6,44 +6,93 @@
     <title>Billing Storage</title>
 </head>
 <body>
+    <header>
+        <div class="text-top">Система CopperBill </div>
+        <select name="monter1" id="monter-main">
+            <option value="111"></option>
+            <option value="222">Анатолий Чепига</option>
+            <option value="333">Руслан Боширов</option>
+            <option value="444">Александр Петров</option>
+        </select>
+    </header>
     <div class="container">
-        <div class="container-added">
-            <div class="text">Монтажник:</div>
-            <select name="monter1" id="monter">
-                <option value="222">Анатолий Чепига</option>
-                <option value="333">Руслан Боширов</option>
-                <option value="444">Александр Петров</option>
-            </select>
-            <button id="output">Test  </button>
-            <div class="text">Mac:</div>
-            <input type="text" id="mac" size="10px">
-            <div class="text">Модель:</div>
-            <select id="model">
-                <option value="a20">a20</option>
-                <option value="a5(Гиг)">a5(Гиг)</option>
-            </select>
-            <div class="text">Комментарий:</div>
-            <input type="text" id="comment" size="20px">
+        <div class="left">
+            <a class="left-text" href="https://bill.unetcom.ru/">Главная</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Сообщения</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Пользователи</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Тарифы</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Отчеты</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Бухгалтерия</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Сети</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Администраторы</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">SMS-Центр</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Обьекты</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Оборудование</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Обращения</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Наблюдение</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Для меня</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Аварии</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Заявки</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Роутеры</a> <span id="router1"></span> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Персоны</a> <br>
+            <a class="left-text" href="https://bill.unetcom.ru/">Выйти</a> <br>
+            <div class="vl"></div>
         </div>
-        <table class="table-main">
-            <tr id="tab1">
-                <th class="table-th" class="table-color" id='th-model'>Модель</th>
-                <th class="table-th" class="table-color" id='th-mac'>Мак адрес</th>
-                <th class="table-th" class="table-color" id='th-monter'>Монтажник</th>
-                <th class="table-th" class="table-color" id='th-id'>ИД</th>
-                <th class="table-th" class="table-color" id='th-comment'>Комментарий</th>
-                <th class="table-th" class="table-color" id='th-date'>Дата</th>
-            </tr>
-        </table>
-        <table class="table-main" id="tab">
-            
-        </table>
-        <div class="container-out">
-            <div class="out-name"></div>
-            <div id="out"></div>
-        </div>
-    </div>
+        <div class="center">
+            <div class="container-added">
+                <table class="table-main">
+                    <tr class="table-color">
+                        <th class="added-rout" class="table-th">Дабавление роутера</th>
+                    </tr>
+                </table>
+                <div class="text add">Монтажник:</div>
+                <select class="add" name="monter1" id="monter">
+                    <option value="111"></option>
+                    <option value="222">Анатолий Чепига</option>
+                    <option value="333">Руслан Боширов</option>
+                    <option value="444">Александр Петров</option>
+                </select>
+                <div class="text add">Mac:</div>
+                <input type="text" id="mac" size="10px" value="00319273FFF8">
+                <div class="text add">Модель:</div>
+                <select id="model">
+                    <option value="a20">c20</option>
+                    <option value="a5(Гиг)">c5(Гиг)</option>
+                </select>
+                <div class="text add">Комментарий:</div>
+                <input type="text" id="comment" size="20px">
+                <button id="output">Добавить роутер</button>
+            </div>
+            <div class="container-filter">
 
+            </div>
+            <table class="table-main">
+                <tr class="table-color">
+                    <th class="table-th" id='th-model'>Модель</th>
+                    <th class="table-th" id='th-mac'>Мак адрес</th>
+                    <th class="table-th" id='th-status'>Статус</th>
+                    <th class="table-th" id='th-monter'>Монтажник</th>
+                    <th class="table-th" id='th-id'>ИД</th>
+                    <th class="table-th" id='th-comment'>Комментарий</th>
+                    <th class="table-th" id='th-date'>Дата</th>
+                    <th class="table-th" id='th-btn'></th>
+                    <th class="table-th" id='th-btn'></th>
+                </tr>
+            </table>
+            <table class="table-main" id="tab">
+                
+            </table>
+            <div class="container-out">
+                <div class="out-name"></div>
+                <div id="out"></div>
+            </div>
+        </div>
+        
+    </div>
+    <footer> 
+        <div class="text-down">Система Copper Billing v.0.1a (c) 2022 Sergey Kuropyatnikov </div>
+        <div class="text-down" id="date"></div>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
