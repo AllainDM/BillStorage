@@ -1,6 +1,10 @@
 body {
     font-size: 0.7rem;
     background: #E4E8EF;
+    font-family: Verdana, Arial;
+    margin:0px; 
+    padding: 0px; 
+    width: 100%;
 }
 
 .container-added {
