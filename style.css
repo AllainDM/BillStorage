@@ -38,6 +38,20 @@ header {
     width: 100%;
 }
 
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .text-top {
+    
+} */
+
+/* #monter-main {
+    float: left;
+} */
+
 .left {
     width: 150px;
     position: relative;
@@ -87,9 +101,14 @@ header {
 }
 
 .table-main {
-    height: 30px;
-    margin-top: 10px;
+    /* height: 20px; */
+    margin-top: 0px;
+    /* display: fixed; */
 }
+
+/* .table-color {
+    height: 230px;
+} */
 
 .table-th {
     background: #FC8E00;

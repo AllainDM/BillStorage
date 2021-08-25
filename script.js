@@ -12,9 +12,11 @@ console.log(arr[0].mac);
 
 let arrMac = ['10feed1572ab', '10feed157311', '10feed15ba78', '10feed15bc9f']; // Отдельный массив с маками
 
-let arrHand = [];
+let arrHand = []; // 2
 
-let arrClosed = [];
+let arrSetup = []; // 3
+
+let arrClosed = []; // 4
 
 // Конвертирование мака
 
@@ -95,7 +97,17 @@ document.getElementById('output').addEventListener('click', () => {
 // Вывод оборудования. Функция создает новый элемент таблицы из основного массива
 
 function outStart() {
-    document.getElementById('tab').innerText = '';
+    document.getElementById('tab').innerHTML = `<tr class="table-color">
+            <th class="table-th" id='th-model'>Модель</th>
+            <th class="table-th" id='th-mac'>Мак адрес</th>
+            <th class="table-th" id='th-status'>Статус</th>
+            <th class="table-th" id='th-monter'>Монтажник</th>
+            <th class="table-th" id='th-id'>ИД</th>
+            <th class="table-th" id='th-comment'>Комментарий</th>
+            <th class="table-th" id='th-date'>Дата</th>
+            <th class="table-th" id='th-btn'></th>
+            <th class="table-th" id='th-btn'></th>
+        </tr>`;
     arr.forEach((item, number) => {
         let a = document.getElementById('tab');
         a.insertAdjacentHTML('beforeend', 
@@ -104,10 +116,11 @@ function outStart() {
             <td id='th-mac'>${item.mac}<br>${item.macConvert} </td> 
             <td id='th-status'>${item.status}</td> 
             <td id='th-monter'><select id="monter${number + 1}">
-                <option value="222">${item.monter}</option>
+                <option value="111">${item.monter}</option>
                 <option value="222">Анатолий Чепига</option>
                 <option value="333">Руслан Боширов</option>
                 <option value="444">Александр Петров</option>
+                <option value="555"></option>
             </select></td>
             <td id='th-id'><input type="text" class="input-id" id="idUser${number + 1}" size="6px" value="${item.idUser}"></td> 
             <td id='th-comment'>${item.comment}</td> 
@@ -116,7 +129,17 @@ function outStart() {
             <td id='th-model'><button class="btn-close">Закрыть</button></td>
         </tr>`)
     })
-    document.getElementById('tab2').innerText = '';
+    document.getElementById('tab2').innerHTML = `<tr class="table-color">
+            <th class="table-th" id='th-model'>Модель</th>
+            <th class="table-th" id='th-mac'>Мак адрес</th>
+            <th class="table-th" id='th-status'>Статус</th>
+            <th class="table-th" id='th-monter'>Монтажник</th>
+            <th class="table-th" id='th-id'>ИД</th>
+            <th class="table-th" id='th-comment'>Комментарий</th>
+            <th class="table-th" id='th-date'>Дата</th>
+            <th class="table-th" id='th-btn'></th>
+            <th class="table-th" id='th-btn'></th>
+        </tr>`;
     arrHand.forEach((item, number) => {
         let a = document.getElementById('tab2');
         a.insertAdjacentHTML('beforeend', 
@@ -125,10 +148,11 @@ function outStart() {
             <td id='th-mac'>${item.mac}<br>${item.macConvert} </td> 
             <td id='th-status'>${item.status}</td> 
             <td id='th-monter'><select id="monterHand${number + 1}">
-                <option value="222">${item.monter}</option>
-                <option value="222">Анатолий Чепига</option>
-                <option value="333">Руслан Боширов</option>
-                <option value="444">Александр Петров</option>
+            <option value="111">${item.monter}</option>
+            <option value="222">Анатолий Чепига</option>
+            <option value="333">Руслан Боширов</option>
+            <option value="444">Александр Петров</option>
+            <option value="555"></option>
             </select></td>
             <td id='th-id'><input type="text" class="input-id" id="idUserHand${number + 1}" size="6px" value="${item.idUser}"></td> 
             <td id='th-comment'>${item.comment}</td> 
@@ -137,7 +161,17 @@ function outStart() {
             <td id='th-model'><button class="btn-close2">Закрыть</button></td>
         </tr>`)
     })
-    document.getElementById('tab3').innerText = '';
+    document.getElementById('tab3').innerHTML = `<tr class="table-color">
+            <th class="table-th" id='th-model'>Модель</th>
+            <th class="table-th" id='th-mac'>Мак адрес</th>
+            <th class="table-th" id='th-status'>Статус</th>
+            <th class="table-th" id='th-monter'>Монтажник</th>
+            <th class="table-th" id='th-id'>ИД</th>
+            <th class="table-th" id='th-comment'>Комментарий</th>
+            <th class="table-th" id='th-date'>Дата</th>
+            <th class="table-th" id='th-btn'></th>
+            <th class="table-th" id='th-btn'></th>
+        </tr>`;
     arrClosed.forEach((item, number) => {
         let a = document.getElementById('tab3');
         a.insertAdjacentHTML('beforeend', 
@@ -146,10 +180,43 @@ function outStart() {
             <td id='th-mac'>${item.mac}<br>${item.macConvert} </td> 
             <td id='th-status'>${item.status}</td> 
             <td id='th-monter'><select id="monterClosed${number + 1}">
-                <option value="222">${item.monter}</option>
-                <option value="222">Анатолий Чепига</option>
-                <option value="333">Руслан Боширов</option>
-                <option value="444">Александр Петров</option>
+            <option value="111">${item.monter}</option>
+            <option value="222">Анатолий Чепига</option>
+            <option value="333">Руслан Боширов</option>
+            <option value="444">Александр Петров</option>
+            <option value="555"></option>
+            </select></td>
+            <td id='th-id'><input type="text" class="input-id" id="idUserClosed${number + 1}" size="6px" value="${item.idUser}"></td> 
+            <td id='th-comment'>${item.comment}</td> 
+            <td id='th-date'>${item.date}</td> 
+            <td id='th-model'><button class="btn-save3">Сохранить</button></td>
+            <td id='th-model'><button class="btn-close3">Закрыть</button></td>
+        </tr>`)
+    })
+    document.getElementById('tab4').innerHTML = `<tr class="table-color">
+            <th class="table-th" id='th-model'>Модель</th>
+            <th class="table-th" id='th-mac'>Мак адрес</th>
+            <th class="table-th" id='th-status'>Статус</th>
+            <th class="table-th" id='th-monter'>Монтажник</th>
+            <th class="table-th" id='th-id'>ИД</th>
+            <th class="table-th" id='th-comment'>Комментарий</th>
+            <th class="table-th" id='th-date'>Дата</th>
+            <th class="table-th" id='th-btn'></th>
+            <th class="table-th" id='th-btn'></th>
+        </tr>`;
+    arrClosed.forEach((item, number) => {
+        let a = document.getElementById('tab4');
+        a.insertAdjacentHTML('beforeend', 
+        `<tr class="table-color">
+            <td id='th-model'>${item.model}</td>
+            <td id='th-mac'>${item.mac}<br>${item.macConvert} </td> 
+            <td id='th-status'>${item.status}</td> 
+            <td id='th-monter'><select id="monterClosed${number + 1}">
+            <option value="111">${item.monter}</option>
+            <option value="222">Анатолий Чепига</option>
+            <option value="333">Руслан Боширов</option>
+            <option value="444">Александр Петров</option>
+            <option value="555"></option>
             </select></td>
             <td id='th-id'><input type="text" class="input-id" id="idUserClosed${number + 1}" size="6px" value="${item.idUser}"></td> 
             <td id='th-comment'>${item.comment}</td> 
@@ -181,6 +248,9 @@ function btnSave() {
                 arr[i].comment = `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=${arr[i].idUser}"> ID: ${arr[i].idUser}</a>`;
                 arr[i].status = 'Установлен'
             }
+            if (arr[i].monter == '' && arr[i].idUser == '') {
+                arr[i].status = 'В офисе';
+            }
             console.log(monter);
             arr[i].date = new Date().toLocaleString();
             all();
@@ -206,6 +276,9 @@ function btnSave2() {
             if (arrHand[i].idUser !== ''){
                 arrHand[i].comment = `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=${arrHand[i].idUser}"> ID: ${arrHand[i].idUser}</a>`;
                 arrHand[i].status = 'Установлен'
+            }
+            if (arrHand[i].monter == '' && arrHand[i].idUser == '') {
+                arrHand[i].status = 'В офисе';
             }
             console.log(monter);
             arrHand[i].date = new Date().toLocaleString();
@@ -243,7 +316,7 @@ function btnClose2() {
             if (arrHand[i].status == 'Установлен') {
                 arrHand[i].status = 'В архиве'
                 alert(`Роутер с маком ${arrHand[i].mac} будет помещен в архив`);
-                arrHand.push(arrHand[i]);
+                arrClosed.push(arrHand[i]);
                 arrHand.splice(i, 1);
             } else {
                 alert(`Роутер не установлен`);
@@ -293,6 +366,14 @@ function newArr() {
             arr.splice(i, 1);
             all();
         }
+        // if (arr[i].monter == '' && arr[i].idUser == '') {
+
+        //     // arr[i].status = 'В офисе';
+        // }
+        // if (arrHand[i].monter == '' && arrHand[i].idUser == '') {
+
+        //     // arrHand[i].status = 'В офисе';
+        // }
     }
         
     
@@ -303,6 +384,7 @@ newArr();
 // Функция запускающая всякие разные функции
 
 function all() {
+    newArr();
     outStart();
     btnSave();
     btnSave2();
