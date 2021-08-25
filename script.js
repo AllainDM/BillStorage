@@ -14,6 +14,8 @@ let arrMac = ['10feed1572ab', '10feed157311', '10feed15ba78', '10feed15bc9f']; /
 
 let arrHand = [];
 
+let arrClosed = [];
+
 // Конвертирование мака
 
 let macConvert;
@@ -114,6 +116,48 @@ function outStart() {
             <td id='th-model'><button class="btn-close">Закрыть</button></td>
         </tr>`)
     })
+    document.getElementById('tab2').innerText = '';
+    arrHand.forEach((item, number) => {
+        let a = document.getElementById('tab2');
+        a.insertAdjacentHTML('beforeend', 
+        `<tr class="table-color">
+            <td id='th-model'>${item.model}</td>
+            <td id='th-mac'>${item.mac}<br>${item.macConvert} </td> 
+            <td id='th-status'>${item.status}</td> 
+            <td id='th-monter'><select id="monterHand${number + 1}">
+                <option value="222">${item.monter}</option>
+                <option value="222">Анатолий Чепига</option>
+                <option value="333">Руслан Боширов</option>
+                <option value="444">Александр Петров</option>
+            </select></td>
+            <td id='th-id'><input type="text" class="input-id" id="idUserHand${number + 1}" size="6px" value="${item.idUser}"></td> 
+            <td id='th-comment'>${item.comment}</td> 
+            <td id='th-date'>${item.date}</td> 
+            <td id='th-model'><button class="btn-save2">Сохранить</button></td>
+            <td id='th-model'><button class="btn-close2">Закрыть</button></td>
+        </tr>`)
+    })
+    document.getElementById('tab3').innerText = '';
+    arrClosed.forEach((item, number) => {
+        let a = document.getElementById('tab3');
+        a.insertAdjacentHTML('beforeend', 
+        `<tr class="table-color">
+            <td id='th-model'>${item.model}</td>
+            <td id='th-mac'>${item.mac}<br>${item.macConvert} </td> 
+            <td id='th-status'>${item.status}</td> 
+            <td id='th-monter'><select id="monterClosed${number + 1}">
+                <option value="222">${item.monter}</option>
+                <option value="222">Анатолий Чепига</option>
+                <option value="333">Руслан Боширов</option>
+                <option value="444">Александр Петров</option>
+            </select></td>
+            <td id='th-id'><input type="text" class="input-id" id="idUserClosed${number + 1}" size="6px" value="${item.idUser}"></td> 
+            <td id='th-comment'>${item.comment}</td> 
+            <td id='th-date'>${item.date}</td> 
+            <td id='th-model'><button class="btn-save3">Сохранить</button></td>
+            <td id='th-model'><button class="btn-close3">Закрыть</button></td>
+        </tr>`)
+    })
 };
 
 outStart();
@@ -146,13 +190,40 @@ function btnSave() {
 
 btnSave();
 
+function btnSave2() {
+    document.querySelectorAll('.btn-save2').forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+            console.log(i);
+            // let id = document.getElementById(`idUser${i + 1}`).value;
+            
+            let mon = document.getElementById(`monterHand${i + 1}`);
+            let monter2 = mon.options[mon.selectedIndex].text;
+            arrHand[i].monter = monter2;
+            if (arrHand[i].monter !== '') {
+                arrHand[i].status = 'На руках';
+            }
+            arrHand[i].idUser = document.getElementById(`idUserHand${i + 1}`).value; //id;
+            if (arrHand[i].idUser !== ''){
+                arrHand[i].comment = `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=${arrHand[i].idUser}"> ID: ${arrHand[i].idUser}</a>`;
+                arrHand[i].status = 'Установлен'
+            }
+            console.log(monter);
+            arrHand[i].date = new Date().toLocaleString();
+            all();
+        })
+    })
+};
+
+btnSave2();
+
 // Кнопка "закрыть", для удаления роутера в архив
 
 function btnClose() {
     document.querySelectorAll('.btn-close').forEach((btn, i) => {
         btn.addEventListener('click', () => {
-            if (arr[i].idUser != '') {
-                alert(`Роутер с маком ${arr[i].mac} будет удален`);
+            if (arr[i].status == 'Установлен') {
+                alert(`Роутер с маком ${arr[i].mac} будет помещен в архив`);
+                arr.push(arr[i]);
                 arr.splice(i, 1);
             } else {
                 alert(`Роутер не установлен`);
@@ -166,15 +237,58 @@ function btnClose() {
 
 btnClose();
 
+function btnClose2() {
+    document.querySelectorAll('.btn-close2').forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+            if (arrHand[i].status == 'Установлен') {
+                alert(`Роутер с маком ${arrHand[i].mac} будет помещен в архив`);
+                arrHand.push(arrHand[i]);
+                arrHand.splice(i, 1);
+            } else {
+                alert(`Роутер не установлен`);
+            }
+            
+            all();
+            console.log(arrHand);
+        })
+    })
+};
+
+btnClose2();
+
+function btnClose3() {
+    document.querySelectorAll('.btn-close3').forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+            if (arrClosed[i].status == 'Установлен') {
+                alert(`Роутер с маком ${arrClosed[i].mac} будет помещен в архив`);
+                arrClosed.push(arrClosed[i]);
+                arrClosed.splice(i, 1);
+            } else {
+                alert(`Роутер не установлен`);
+            }
+            
+            all();
+            console.log(arrClosed);
+        })
+    })
+};
+
+btnClose3();
+
 // Функция сортировки массива по массивам
 
 function newArr() {
     for ( let i = 0; i < arr.length; i++) {
         if (arr[i].status == 'На руках') {
-            arrHand.push(i);
+            arrHand.push(arr[i]);
             arr.splice(i, 1);
             console.log(arr);
             console.log(arrHand);
+            all();
+        }
+        if (arr[i].status == 'Установлен') {
+            arrClosed.push(arr[i]);
+            arr.splice(i, 1);
             all();
         }
     }
@@ -189,7 +303,10 @@ newArr();
 function all() {
     outStart();
     btnSave();
+    btnSave2();
     btnClose();
+    btnClose2();
+    btnClose3();
     newArr();
 }
 
