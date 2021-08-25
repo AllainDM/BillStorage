@@ -76,12 +76,12 @@ document.getElementById('output').addEventListener('click', () => {
     }
 
     // Проверка на совпадение мака. Временно отключено!!!
-    // for (let item = 0; item < arr.length; item++) {
-    //     if (mac == arr[item].mac) {
-    //         alert('Такой мак адрес уже существует');
-    //         return;
-    //     }
-    // }
+    for (let item = 0; item < arr.length; item++) {
+        if (mac == arr[item].mac) {
+            alert('Такой мак адрес уже существует');
+            return;
+        }
+    }
 
     arrMac.push(mac);
     console.log(arrMac);
@@ -241,6 +241,7 @@ function btnClose2() {
     document.querySelectorAll('.btn-close2').forEach((btn, i) => {
         btn.addEventListener('click', () => {
             if (arrHand[i].status == 'Установлен') {
+                arrHand[i].status = 'В архиве'
                 alert(`Роутер с маком ${arrHand[i].mac} будет помещен в архив`);
                 arrHand.push(arrHand[i]);
                 arrHand.splice(i, 1);
@@ -260,6 +261,7 @@ function btnClose3() {
     document.querySelectorAll('.btn-close3').forEach((btn, i) => {
         btn.addEventListener('click', () => {
             if (arrClosed[i].status == 'Установлен') {
+                arrClosed[i].status = 'В архиве'
                 alert(`Роутер с маком ${arrClosed[i].mac} будет помещен в архив`);
                 arrClosed.push(arrClosed[i]);
                 arrClosed.splice(i, 1);
