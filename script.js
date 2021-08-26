@@ -3,8 +3,9 @@
 let arr = [
     {monter: 'Анатолий Чепига', mac: '10feed1572ab', macConvert: '10feed1572ac', comment: '', status: 'На руках', model: 'c20', idUser: '', date: new Date(2021, 6, 12, 15, 24, 10, 0).toLocaleString()},
     {monter: '', mac: '10feed157311', macConvert: '10feed157312', comment: '', status: 'В офисе', model: 'c20', idUser: '', date: ''},
-    {monter: 'Руслан Боширов', mac: '10feed15ba78', macConvert: '10feed15ba79', comment: '', status: 'На руках', model: 'c20', idUser: '15758', date: new Date(2021, 7, 15, 12, 1, 17, 0).toLocaleString()},
+    {monter: 'Руслан Боширов', mac: '0031929E0F6C', macConvert: '0031929E0F6D', comment: '', status: 'На руках', model: 'c20', idUser: '53753', date: new Date(2021, 7, 15, 12, 1, 17, 0).toLocaleString()},
     {monter: '', mac: '10feed15bc9f', macConvert: '10feed15bca0', comment: '', status: 'В офисе', model: 'c20', idUser: '', date: ''},
+    {monter: 'Руслан Боширов', mac: '0031929DF1E4', macConvert: '0031929DF1E5', comment: `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=53760" target="_blank"> ID: 53760</a>`, status: 'Установлен', model: 'c20', idUser: '53760', date: new Date(2021, 7, 23, 12, 1, 17, 0).toLocaleString()},
 ]; 
 
 console.log(arr[0][mac]);
@@ -95,6 +96,7 @@ document.getElementById('output').addEventListener('click', () => {
 });
 
 // Вывод оборудования. Функция создает новый элемент таблицы из основного массива
+// https://bill.unetcom.ru/?mod=usr&act=list&go=1&search_segment=1&searchid=&search_kurator=0&search_region=0&search_district=&objid=&street=&objectname=&par=&flor=&flat=&wherefind=fullname&part=all&query=&searchip=&searchmac=0031929DF1E5&searchphonenum=&searchemail=&search_service=&search_tarif_type=now&search_tarifperiod_datestart=&search_tarifperiod_dateend=&abonement_when=now&search_abonement_id=&userstatus=-2&statusdatefrom=&statusdateto=&cli_type=-1&paytype=-1&speedtype=&isvip=&minbalanceznak=%3E&minbalance=&dc_nickname=&user_comment=&go=1&go=%CD%E0%E9%F2%E8+%EF%EE%EB%FC%E7%EE%E2%E0%F2%E5%EB%FF
 
 function outStart() {
     document.getElementById('tab').innerHTML = `<tr class="table-color">
@@ -113,7 +115,7 @@ function outStart() {
         a.insertAdjacentHTML('beforeend', 
         `<tr class="table-color">
             <td id='th-model'>${item.model}</td>
-            <td id='th-mac'>${item.mac}<br>${item.macConvert} </td> 
+            <td id='th-mac'>lan: ${item.mac}<br> <a href="https://bill.unetcom.ru/?mod=usr&act=list&go=1&search_segment=1&searchid=&search_kurator=0&search_region=0&search_district=&objid=&street=&objectname=&par=&flor=&flat=&wherefind=fullname&part=all&query=&searchip=&searchmac=${item.macConvert}&searchphonenum=&searchemail=&search_service=&search_tarif_type=now&search_tarifperiod_datestart=&search_tarifperiod_dateend=&abonement_when=now&search_abonement_id=&userstatus=-2&statusdatefrom=&statusdateto=&cli_type=-1&paytype=-1&speedtype=&isvip=&minbalanceznak=%3E&minbalance=&dc_nickname=&user_comment=&go=1&go=%CD%E0%E9%F2%E8+%EF%EE%EB%FC%E7%EE%E2%E0%F2%E5%EB%FF" target="_blank">wan: ${item.macConvert}</a></td> 
             <td id='th-status'>${item.status}</td> 
             <td id='th-monter'><select id="monter${number + 1}">
                 <option value="111">${item.monter}</option>
@@ -145,7 +147,7 @@ function outStart() {
         a.insertAdjacentHTML('beforeend', 
         `<tr class="table-color">
             <td id='th-model'>${item.model}</td>
-            <td id='th-mac'>${item.mac}<br>${item.macConvert} </td> 
+            <td id='th-mac'>lan: ${item.mac}<br> <a href="https://bill.unetcom.ru/?mod=usr&act=list&go=1&search_segment=1&searchid=&search_kurator=0&search_region=0&search_district=&objid=&street=&objectname=&par=&flor=&flat=&wherefind=fullname&part=all&query=&searchip=&searchmac=${item.macConvert}&searchphonenum=&searchemail=&search_service=&search_tarif_type=now&search_tarifperiod_datestart=&search_tarifperiod_dateend=&abonement_when=now&search_abonement_id=&userstatus=-2&statusdatefrom=&statusdateto=&cli_type=-1&paytype=-1&speedtype=&isvip=&minbalanceznak=%3E&minbalance=&dc_nickname=&user_comment=&go=1&go=%CD%E0%E9%F2%E8+%EF%EE%EB%FC%E7%EE%E2%E0%F2%E5%EB%FF" target="_blank">wan: ${item.macConvert}</a></td> 
             <td id='th-status'>${item.status}</td> 
             <td id='th-monter'><select id="monterHand${number + 1}">
             <option value="111">${item.monter}</option>
@@ -177,7 +179,7 @@ function outStart() {
         a.insertAdjacentHTML('beforeend', 
         `<tr class="table-color">
             <td id='th-model'>${item.model}</td>
-            <td id='th-mac'>${item.mac}<br>${item.macConvert} </td> 
+            <td id='th-mac'>lan: ${item.mac}<br> <a href="https://bill.unetcom.ru/?mod=usr&act=list&go=1&search_segment=1&searchid=&search_kurator=0&search_region=0&search_district=&objid=&street=&objectname=&par=&flor=&flat=&wherefind=fullname&part=all&query=&searchip=&searchmac=${item.macConvert}&searchphonenum=&searchemail=&search_service=&search_tarif_type=now&search_tarifperiod_datestart=&search_tarifperiod_dateend=&abonement_when=now&search_abonement_id=&userstatus=-2&statusdatefrom=&statusdateto=&cli_type=-1&paytype=-1&speedtype=&isvip=&minbalanceznak=%3E&minbalance=&dc_nickname=&user_comment=&go=1&go=%CD%E0%E9%F2%E8+%EF%EE%EB%FC%E7%EE%E2%E0%F2%E5%EB%FF" target="_blank">wan: ${item.macConvert}</a></td> 
             <td id='th-status'>${item.status}</td> 
             <td id='th-monter'><select id="monterSetup${number + 1}">
             <option value="111">${item.monter}</option>
@@ -209,7 +211,7 @@ function outStart() {
         a.insertAdjacentHTML('beforeend', 
         `<tr class="table-color">
             <td id='th-model'>${item.model}</td>
-            <td id='th-mac'>${item.mac}<br>${item.macConvert} </td> 
+            <td id='th-mac'>lan: ${item.mac}<br> <a href="https://bill.unetcom.ru/?mod=usr&act=list&go=1&search_segment=1&searchid=&search_kurator=0&search_region=0&search_district=&objid=&street=&objectname=&par=&flor=&flat=&wherefind=fullname&part=all&query=&searchip=&searchmac=${item.macConvert}&searchphonenum=&searchemail=&search_service=&search_tarif_type=now&search_tarifperiod_datestart=&search_tarifperiod_dateend=&abonement_when=now&search_abonement_id=&userstatus=-2&statusdatefrom=&statusdateto=&cli_type=-1&paytype=-1&speedtype=&isvip=&minbalanceznak=%3E&minbalance=&dc_nickname=&user_comment=&go=1&go=%CD%E0%E9%F2%E8+%EF%EE%EB%FC%E7%EE%E2%E0%F2%E5%EB%FF" target="_blank">wan: ${item.macConvert}</a></td> 
             <td id='th-status'>${item.status}</td> 
             <td id='th-monter'><select id="monterClosed${number + 1}">
             <option value="111">${item.monter}</option>
@@ -245,7 +247,7 @@ function btnSave() {
             }
             arr[i].idUser = document.getElementById(`idUser${i + 1}`).value; //id;
             if (arr[i].idUser !== ''){
-                arr[i].comment = `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=${arr[i].idUser}"> ID: ${arr[i].idUser}</a>`;
+                arr[i].comment = `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=${arr[i].idUser}" target="_blank"> ID: ${arr[i].idUser}</a>`;
                 arr[i].status = 'Установлен'
             }
             if (arr[i].monter == '' && arr[i].idUser == '') {
@@ -274,7 +276,7 @@ function btnSave2() {
             }
             arrHand[i].idUser = document.getElementById(`idUserHand${i + 1}`).value; //id;
             if (arrHand[i].idUser !== ''){
-                arrHand[i].comment = `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=${arrHand[i].idUser}"> ID: ${arrHand[i].idUser}</a>`;
+                arrHand[i].comment = `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=${arrHand[i].idUser}" target="_blank"> ID: ${arrHand[i].idUser}</a>`;
                 arrHand[i].status = 'Установлен'
             }
             if (arrHand[i].monter == '' && arrHand[i].idUser == '') {
@@ -303,7 +305,7 @@ function btnSave3() {
             }
             arrSetup[i].idUser = document.getElementById(`idUserSetup${i + 1}`).value; //id;
             if (arrSetup[i].idUser !== ''){
-                arrSetup[i].comment = `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=${arrSetup[i].idUser}"> ID: ${arrSetup[i].idUser}</a>`;
+                arrSetup[i].comment = `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=${arrSetup[i].idUser}" target="_blank"> ID: ${arrSetup[i].idUser}</a>`;
                 arrSetup[i].status = 'Установлен'
             }
             if (arrSetup[i].monter == '' && arrSetup[i].idUser == '') {
@@ -332,7 +334,7 @@ function btnSave4() {
             }
             arrClosed[i].idUser = document.getElementById(`idUserHand${i + 1}`).value; //id;
             if (arrClosed[i].idUser !== ''){
-                arrClosed[i].comment = `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=${arrClosed[i].idUser}"> ID: ${arrHand[i].idUser}</a>`;
+                arrClosed[i].comment = `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=${arrClosed[i].idUser}" target="_blank"> ID: ${arrHand[i].idUser}</a>`;
                 arrClosed[i].status = 'Установлен'
             }
             if (arrClosed[i].monter == '' && arrClosed[i].idUser == '') {
@@ -435,8 +437,7 @@ function newArr() {
         if (arr[i].status == 'На руках') {
             arrHand.push(arr[i]);
             arr.splice(i, 1);
-        } 
-        if (arr[i].status == 'Установлен') {
+        } else if (arr[i].status == 'Установлен') {
             arrSetup.push(arr[i]);
             arr.splice(i, 1);
         } 
