@@ -172,21 +172,21 @@ function outStart() {
             <th class="table-th" id='th-btn'></th>
             <th class="table-th" id='th-btn'></th>
         </tr>`;
-    arrClosed.forEach((item, number) => {
+    arrSetup.forEach((item, number) => {
         let a = document.getElementById('tab3');
         a.insertAdjacentHTML('beforeend', 
         `<tr class="table-color">
             <td id='th-model'>${item.model}</td>
             <td id='th-mac'>${item.mac}<br>${item.macConvert} </td> 
             <td id='th-status'>${item.status}</td> 
-            <td id='th-monter'><select id="monterClosed${number + 1}">
+            <td id='th-monter'><select id="monterSetup${number + 1}">
             <option value="111">${item.monter}</option>
             <option value="222">Анатолий Чепига</option>
             <option value="333">Руслан Боширов</option>
             <option value="444">Александр Петров</option>
             <option value="555"></option>
             </select></td>
-            <td id='th-id'><input type="text" class="input-id" id="idUserClosed${number + 1}" size="6px" value="${item.idUser}"></td> 
+            <td id='th-id'><input type="text" class="input-id" id="idUserSetup${number + 1}" size="6px" value="${item.idUser}"></td> 
             <td id='th-comment'>${item.comment}</td> 
             <td id='th-date'>${item.date}</td> 
             <td id='th-model'><button class="btn-save3">Сохранить</button></td>
@@ -289,15 +289,74 @@ function btnSave2() {
 
 btnSave2();
 
+function btnSave3() {
+    document.querySelectorAll('.btn-save3').forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+            console.log(i);
+            // let id = document.getElementById(`idUser${i + 1}`).value;
+            
+            let mon = document.getElementById(`monterSetup${i + 1}`);
+            let monter2 = mon.options[mon.selectedIndex].text;
+            arrSetup[i].monter = monter2;
+            if (arrSetup[i].monter !== '') {
+                arrSetup[i].status = 'На руках';
+            }
+            arrSetup[i].idUser = document.getElementById(`idUserSetup${i + 1}`).value; //id;
+            if (arrSetup[i].idUser !== ''){
+                arrSetup[i].comment = `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=${arrSetup[i].idUser}"> ID: ${arrSetup[i].idUser}</a>`;
+                arrSetup[i].status = 'Установлен'
+            }
+            if (arrSetup[i].monter == '' && arrSetup[i].idUser == '') {
+                arrSetup[i].status = 'В офисе';
+            }
+            console.log(monter);
+            arrSetup[i].date = new Date().toLocaleString();
+            all();
+        })
+    })
+};
+
+btnSave3();
+
+function btnSave4() {
+    document.querySelectorAll('.btn-save4').forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+            console.log(i);
+            // let id = document.getElementById(`idUser${i + 1}`).value;
+            
+            let mon = document.getElementById(`monterClosed${i + 1}`);
+            let monter2 = mon.options[mon.selectedIndex].text;
+            arrClosed[i].monter = monter2;
+            if (arrClosed[i].monter !== '') {
+                arrClosed[i].status = 'На руках';
+            }
+            arrClosed[i].idUser = document.getElementById(`idUserHand${i + 1}`).value; //id;
+            if (arrClosed[i].idUser !== ''){
+                arrClosed[i].comment = `<a href="https://bill.unetcom.ru/?mod=usr&act=viewinfo&uid=${arrClosed[i].idUser}"> ID: ${arrHand[i].idUser}</a>`;
+                arrClosed[i].status = 'Установлен'
+            }
+            if (arrClosed[i].monter == '' && arrClosed[i].idUser == '') {
+                arrClosed[i].status = 'В офисе';
+            }
+            console.log(monter);
+            arrClosed[i].date = new Date().toLocaleString();
+            all();
+        })
+    })
+};
+
+btnSave4();
+
 // Кнопка "закрыть", для удаления роутера в архив
 
 function btnClose() {
     document.querySelectorAll('.btn-close').forEach((btn, i) => {
         btn.addEventListener('click', () => {
             if (arr[i].status == 'Установлен') {
+                arr[i].status = 'В архиве'
                 alert(`Роутер с маком ${arr[i].mac} будет помещен в архив`);
-                arr.push(arr[i]);
-                arr.splice(i, 1);
+                // arrClosed.push(arr[i]);
+                // arr.splice(i, 1);
             } else {
                 alert(`Роутер не установлен`);
             }
@@ -333,53 +392,70 @@ btnClose2();
 function btnClose3() {
     document.querySelectorAll('.btn-close3').forEach((btn, i) => {
         btn.addEventListener('click', () => {
-            if (arrClosed[i].status == 'Установлен') {
-                arrClosed[i].status = 'В архиве'
-                alert(`Роутер с маком ${arrClosed[i].mac} будет помещен в архив`);
-                arrClosed.push(arrClosed[i]);
-                arrClosed.splice(i, 1);
+            if (arrSetup[i].status == 'Установлен') {
+                arrSetup[i].status = 'В архиве'
+                alert(`Роутер с маком ${arrSetup[i].mac} будет помещен в архив`);
+                arrClosed.push(arrSetup[i]);
+                arrSetup.splice(i, 1);
             } else {
                 alert(`Роутер не установлен`);
             }
-            
             all();
-            console.log(arrClosed);
+            console.log(arrSetup);
         })
     })
 };
 
 btnClose3();
 
-// Функция сортировки массива по массивам
+// function btnClose4() {
+//     document.querySelectorAll('.btn-close3').forEach((btn, i) => {
+//         btn.addEventListener('click', () => {
+//             if (arrClosed[i].status == 'Установлен') {
+//                 arrClosed[i].status = 'В архиве'
+//                 alert(`Роутер с маком ${arrClosed[i].mac} будет помещен в архив`);
+//                 arrClosed.push(arrClosed[i]);
+//                 arrClosed.splice(i, 1);
+//             } else {
+//                 alert(`Роутер не установлен`);
+//             }
+            
+//             all();
+//             console.log(arrClosed);
+//         })
+//     })
+// };
+
+// btnClose4();
+
+// Функция сортировки массива по массивам. Фактически сортирует только внесенные данные в основной массив через код
 
 function newArr() {
     for ( let i = 0; i < arr.length; i++) {
         if (arr[i].status == 'На руках') {
             arrHand.push(arr[i]);
             arr.splice(i, 1);
-            console.log(arr);
-            console.log(arrHand);
-            all();
-        }
+        } 
         if (arr[i].status == 'Установлен') {
-            arrClosed.push(arr[i]);
+            arrSetup.push(arr[i]);
             arr.splice(i, 1);
-            all();
-        }
-        // if (arr[i].monter == '' && arr[i].idUser == '') {
-
-        //     // arr[i].status = 'В офисе';
-        // }
-        // if (arrHand[i].monter == '' && arrHand[i].idUser == '') {
-
-        //     // arrHand[i].status = 'В офисе';
-        // }
+        } 
     }
-        
-    
+    for ( let i = 0; i < arrHand.length; i++) {
+        if (arrHand[i].status == 'Установлен') {
+            arrSetup.push(arrHand[i]);
+            arrHand.splice(i, 1);
+        }
+    }
+    // for ( let i = 0; i < arrSetup.length; i++) {
+    //     if (arrSetup[i].status == 'Установлен') {
+    //         arrClosed.push(arrSetup[i]);
+    //         arrSetup.splice(i, 1);
+    //     }
+    // }
 };
 
-newArr();
+// newArr();
 
 // Функция запускающая всякие разные функции
 
@@ -388,11 +464,15 @@ function all() {
     outStart();
     btnSave();
     btnSave2();
+    btnSave3();
+    btnSave4();
     btnClose();
     btnClose2();
     btnClose3();
-    newArr();
+    // btnClose4();
 }
+
+all();
 
 // Добавление даты на страницу
 
